@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hey Shifa 💗</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    font-family:"Trebuchet MS",Arial,sans-serif;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at 15% 15%,rgba(255,255,255,.9) 0 2px,transparent 3px),
+    radial-gradient(circle at 85% 25%,rgba(255,255,255,.8) 0 2px,transparent 3px),
+    radial-gradient(circle at 25% 85%,rgba(255,255,255,.7) 0 2px,transparent 3px),
+    linear-gradient(135deg,#ffd5e5,#eadcff,#d8f4ff);
+
+    position:relative;
+}
+
+/* Background glow */
+
+body:before,
+body:after{
+    content:"";
+    position:fixed;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:.45;
+    z-index:-1;
+}
+
+body:before{
+    background:#ff9fc3;
+    top:-150px;
+    left:-120px;
+}
+
+body:after{
+    background:#b9a1ff;
+    bottom:-150px;
+    right:-120px;
+}
+
+
+/* Floating hearts */
+
+.heart{
+    position:fixed;
+    bottom:-60px;
+    font-size:28px;
+    pointer-events:none;
+    opacity:.7;
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:translateY(-115vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+
+/* Main card */
+
+.card{
+    width:94%;
+    max-width:560px;
+    min-height:650px;
+
+    padding:55px 35px;
+
+    background:rgba(255,255,255,.72);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.8);
+
+    border-radius:45px;
+
+    box-shadow:
+        0 30px 80px rgba(80,50,120,.22);
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    animation:cardIn 1s ease;
+}
+
+@keyframes cardIn{
+
+    from{
+        opacity:0;
+        transform:translateY(40px) scale(.94);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+
+/* Decorative circles */
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.35);
+}
+
+.c1{
+    width:80px;
+    height:80px;
+    top:-30px;
+    right:-20px;
+}
+
+.c2{
+    width:50px;
+    height:50px;
+    bottom:30px;
+    left:-15px;
+}
+
+
+/* Emoji */
+
+.emoji{
+    font-size:82px;
+    margin-bottom:25px;
+    animation:bounce 2.5s ease-in-out infinite;
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+
+/* Headings */
+
+h1{
+    color:#ff5791;
+    font-size:44px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.subtitle{
+    color:#70445b;
+    font-size:20px;
+    line-height:1.7;
+}
+
+
+/* Main button */
+
+.main-btn{
+    margin-top:30px;
+
+    padding:17px 38px;
+
+    border:0;
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#ff6599,#ff91b7);
+
+    color:white;
+
+    font-size:18px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 12px 30px rgba(255,90,145,.3);
+
+    transition:.3s;
+}
+
+.main-btn:hover{
+    transform:scale(1.08);
+}
+
+
+/* Envelope */
+
+.envelope{
+    width:210px;
+    height:145px;
+
+    margin:35px auto;
+
+    background:#ff8eb4;
+
+    border-radius:15px;
+
+    position:relative;
+
+    box-shadow:
+        0 18px 35px rgba(255,80,140,.25);
+
+    animation:envelopeFloat 2.5s infinite ease-in-out;
+}
+
+@keyframes envelopeFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+.envelope:before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    border-left:105px solid transparent;
+    border-right:105px solid transparent;
+    border-top:80px solid #ffb5cc;
+}
+
+.envelope:after{
+
+    content:"💌";
+
+    position:absolute;
+
+    font-size:55px;
+
+    left:76px;
+    top:48px;
+}
+
+
+/* Question */
+
+.question{
+    color:#ff5791;
+    font-size:39px;
+    line-height:1.35;
+    font-weight:bold;
+}
+
+
+/* Button area */
+
+.choice-area{
+
+    position:relative;
+
+    height:190px;
+
+    margin-top:30px;
+}
+
+
+/* Choice buttons */
+
+.choice{
+    position:absolute;
+
+    padding:17px 35px;
+
+    border:0;
+
+    border-radius:50px;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:
+        left .25s ease,
+        top .25s ease,
+        transform .25s ease;
+}
+
+.yes{
+    left:18%;
+    top:45px;
+
+    background:#69d696;
+
+    box-shadow:0 10px 25px rgba(60,190,110,.25);
+}
+
+.no{
+    left:57%;
+    top:45px;
+
+    background:#ff8585;
+
+    box-shadow:0 10px 25px rgba(255,80,80,.25);
+}
+
+
+/* Obviously */
+
+.obviously-area{
+    animation:obviouslyIn .8s ease;
+}
+
+@keyframes obviouslyIn{
+
+    0%{
+        opacity:0;
+        transform:scale(.5);
+    }
+
+    70%{
+        transform:scale(1.12);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.obviously-button{
+
+    margin-top:35px;
+
+    padding:20px 45px;
+
+    border:0;
+
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#ff5f98,#ff91b8);
+
+    color:white;
+
+    font-size:21px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 12px 30px rgba(255,80,140,.35);
+
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.07);
+    }
+}
+
+
+/* Obviously heading */
+
+.obviously-title{
+
+    color:#ff5791;
+
+    font-size:52px;
+
+    margin:20px 0;
+}
+
+
+/* Gallery */
+
+.gallery{
+
+    margin-top:30px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.photo{
+
+    background:white;
+
+    padding:9px 9px 18px;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 10px 25px rgba(70,50,90,.15);
+
+    transform:rotate(-3deg);
+
+    transition:.3s;
+}
+
+.photo:nth-child(even){
+    transform:rotate(3deg);
+}
+
+.photo:hover{
+    transform:rotate(0) scale(1.05);
+}
+
+.photo img{
+
+    width:100%;
+    height:145px;
+
+    object-fit:cover;
+
+    border-radius:7px;
+}
+
+.caption{
+
+    margin-top:8px;
+
+    color:#9b617d;
+
+    font-family:cursive;
+
+    font-size:15px;
+}
+
+
+/* Hidden */
+
+.hidden{
+    display:none !important;
+}
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .card{
+        min-height:600px;
+        padding:45px 22px;
+    }
+
+    h1{
+        font-size:36px;
+    }
+
+    .question{
+        font-size:31px;
+    }
+
+    .subtitle{
+        font-size:17px;
+    }
+
+    .emoji{
+        font-size:70px;
+    }
+
+    .choice-area{
+        height:200px;
+    }
+
+    .yes{
+        left:8%;
+    }
+
+    .no{
+        left:53%;
+    }
+
+    .gallery img{
+        height:125px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- Floating hearts -->
+
+<div class="heart" style="left:5%;animation-delay:0s">💗</div>
+<div class="heart" style="left:18%;animation-delay:2s">💕</div>
+<div class="heart" style="left:35%;animation-delay:4s">💖</div>
+<div class="heart" style="left:52%;animation-delay:1s">💗</div>
+<div class="heart" style="left:70%;animation-delay:3s">💞</div>
+<div class="heart" style="left:87%;animation-delay:1.5s">💕</div>
+
+
+<div class="card">
+
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+
+
+<!-- ================= SCREEN 1 ================= -->
+
+<div id="screen1">
+
+    <div class="emoji">
+        🧸💗
+    </div>
+
+    <h1>
+        Hey Shifa! 🌸
+    </h1>
+
+    <p class="subtitle">
+        I made a little something<br>
+        especially for you... 👀💌
+    </p>
+
+    <div class="envelope"></div>
+
+    <button
+        class="main-btn"
+        onclick="openQuestion()">
+
+        Open My Surprise 💌
+
+    </button>
+
+</div>
+
+
+<!-- ================= SCREEN 2 ================= -->
+
+<div id="screen2" class="hidden">
+
+    <div class="emoji">
+        🥹💗
+    </div>
+
+    <div class="question">
+        Will you be my<br>
+        Bestest Friend?
+    </div>
+
+    <p class="subtitle" style="margin-top:18px">
+        Come on... choose one. 👀<br>
+        Why are the buttons running away? 😂
+    </p>
+
+
+    <div
+        id="choiceArea"
+        class="choice-area">
+
+        <button
+            id="yesBtn"
+            class="choice yes"
+            onclick="tryButton()">
+
+            YES 💗
+
+        </button>
+
+        <button
+            id="noBtn"
+            class="choice no"
+            onclick="tryButton()">
+
+            NO 🙈
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= SCREEN 3 ================= -->
+
+<div id="screen3" class="hidden">
+
+    <div class="emoji">
+        😭🫶🏻
+    </div>
+
+    <div style="font-size:35px">
+        ✨ 💗 ✨
+    </div>
+
+    <div class="obviously-title">
+        Obviously! 🥹💕
+    </div>
+
+    <p class="subtitle">
+        I knew you'd choose me. 😌<br>
+        Bestest friends forever! 🫶🏻
+    </p>
+
+    <button
+        class="obviously-button"
+        onclick="showThankYou()">
+
+        Obviously! 💗
+
+    </button>
+
+</div>
+
+
+<!-- ================= SCREEN 4 ================= -->
+
+<div id="screen4" class="hidden">
+
+    <div class="emoji">
+        🫶🏻🌷
+    </div>
+
+    <h1>
+        Thank You, Shifa! 💗
+    </h1>
+
+    <p class="subtitle">
+        Thank you for being<br>
+        my bestest friend. 🥹
+    </p>
+
+    <p style="margin-top:12px">
+        Our little memories... 📸✨
+    </p>
+
+
+    <div class="gallery">
+
+        <div class="photo">
+
+            <img src="photo1.jpg">
+
+            <div class="caption">
+                A little memory 💗
+            </div>
+
+        </div>
+
+
+        <div class="photo">
+
+            <img src="photo2.jpg">
+
+            <div class="caption">
+                Good times 🌸
+            </div>
+
+        </div>
+
+
+        <div class="photo">
+
+            <img src="photo3.jpg">
+
+            <div class="caption">
+                Best memories 🫶🏻
+            </div>
+
+        </div>
+
+
+        <div class="photo">
+
+            <img src="photo4.jpg">
+
+            <div class="caption">
+                Forever ✨
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+/* ==============================
+   OPEN QUESTION
+============================== */
+
+function openQuestion(){
+
+    document.getElementById("screen1")
+        .classList.add("hidden");
+
+    document.getElementById("screen2")
+        .classList.remove("hidden");
+
+}
+
+
+/* ==============================
+   BUTTON MOVEMENT
+============================== */
+
+let tries = 0;
+
+
+function tryButton(){
+
+    tries++;
+
+    const yes =
+        document.getElementById("yesBtn");
+
+    const no =
+        document.getElementById("noBtn");
+
+
+    /*
+       First 2 attempts:
+       both buttons move.
+    */
+
+    if(tries < 3){
+
+        moveButton(yes);
+        moveButton(no);
+
+        return;
+    }
+
+
+    /*
+       EXACTLY ON 3RD ATTEMPT:
+       show Obviously option.
+    */
+
+    showObviously();
+
+}
+
+
+/* ==============================
+   MOVE BUTTON
+============================== */
+
+function moveButton(button){
+
+    const area =
+        document.getElementById("choiceArea");
+
+
+    const maxX =
+        area.clientWidth - button.offsetWidth;
+
+    const maxY =
+        area.clientHeight - button.offsetHeight;
+
+
+    const x =
+        Math.random() * maxX;
+
+    const y =
+        Math.random() * maxY;
+
+
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+
+}
+
+
+/* ==============================
+   SHOW OBVIOUSLY
+============================== */
+
+function showObviously(){
+
+    document.getElementById("screen2")
+        .classList.add("hidden");
+
+    document.getElementById("screen3")
+        .classList.remove("hidden");
+
+}
+
+
+/* ==============================
+   THANK YOU
+============================== */
+
+function showThankYou(){
+
+    document.getElementById("screen3")
+        .classList.add("hidden");
+
+    document.getElementById("screen4")
+        .classList.remove("hidden");
+
+}
+
+</script>
+
+</body>
+</html>
